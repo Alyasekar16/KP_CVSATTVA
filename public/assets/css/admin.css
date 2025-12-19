@@ -1,0 +1,36 @@
+
+/* navbar */
+.sidebar-link {
+    display: block;
+    padding: 0.6rem 1rem;
+    border-radius: 0.5rem;
+    color: #374151;
+    font-weight: 500;
+}
+
+.sidebar-link:hover {
+    background-color: #F1E9E2;
+    color: #4A2E14;
+}
+
+
+table.dataTable td {
+    vertical-align: middle;
+}
+
+table.dataTable img {
+    max-width: 40px;
+    border-radius: 6px;
+}
+
+/* gambar proyek di tabel */
+.img-proyek {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;   
+    border-radius: 8px;  
+    display: block;
+}
+
+
+
