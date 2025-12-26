@@ -11,6 +11,9 @@ class perusahaan extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'visimisi', 'sejarah', 'maknalogo', 'foto'
+        'visimisi',
+        'sejarah',
+        'maknalogo',
+        'foto'
     ];
 }

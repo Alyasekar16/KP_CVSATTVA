@@ -2,14 +2,14 @@
 
 namespace Database\Seeders;
 
-use App\Models\Proyek;
+use App\Models\proyek;
 use Illuminate\Database\Seeder;
 
 class ProyekSeeder extends Seeder
 {
     public function run(): void
     {
-        Proyek::create([
+        proyek::create([
             'namaproyek' => 'Pembangunan Gedung Perkantoran',
             'kategoriproyek'=> 'Kontruksi',
             'jenisproyek'=> 'Kantor',
@@ -22,7 +22,7 @@ class ProyekSeeder extends Seeder
             'gambarproyek'=> null,
         ]);
 
-        Proyek::create([
+        proyek::create([
             'namaproyek' => 'Desain Rumah Tinggal Modern',
             'kategoriproyek'=> 'Desain Arsitektur',
             'jenisproyek'=> 'Rumah',

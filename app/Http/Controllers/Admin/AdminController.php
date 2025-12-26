@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Proyek;
 
@@ -22,7 +23,7 @@ class AdminController extends Controller
         $proyek = Proyek::all();
         return view('admin.proyek', compact('proyek'));
     }
-    
+
     public function ulasan()
     {
         return view('admin.ulasan');

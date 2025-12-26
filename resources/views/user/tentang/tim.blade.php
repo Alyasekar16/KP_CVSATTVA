@@ -25,11 +25,11 @@
 
     {{-- DATA CEO --}}
     <div>
-      <p class="inline-block px-4 py-1 bg-gray-100 rounded-full mb-3">{{ $ceo->jabatan }}</p>
-      <h2 class="text-3xl font-semibold mb-3">{{ $ceo->nama }}</h2>
+      <p class="inline-block px-4 py-1 bg-gray-100 rounded-full mb-3">{{ $foto->jabatan }}</p>
+      <h2 class="text-3xl font-semibold mb-3">{{ $foto->nama }}</h2>
       <p class="text-gray-600 mb-6">
-        {{ $ceo->deskripsi }}
-         <h3 class="text-xl font-semibold mb-3">Pengalaman</h3>
+        {{ $foto->deskripsi }}
+      <h3 class="text-xl font-semibold mb-3">Pengalaman</h3>
       <ul class="space-y-2 text-gray-700">
         <li>✔️ Lebih dari 15 tahun di industri teknologi</li>
         <li>✔️ Pernah memimpin perusahaan besar sebagai manajer</li>
@@ -40,7 +40,7 @@
 
     {{-- EXPERIENCE (tetap statis) --}}
     <div>
-     
+
     </div>
 
   </div>
@@ -61,21 +61,21 @@
   <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
 
     @foreach ($karyawan as $orang)
-      <div class="bg-white rounded-xl shadow-md overflow-hidden">
-        
-        <div class="bg-blue-50 p-5 flex justify-center">
-          <img src="{{ asset($orang->foto) }}" class="w-40 h-40 object-cover rounded-lg">
-        </div>
+    <div class="bg-white rounded-xl shadow-md overflow-hidden">
 
-        <div class="p-5">
-          <p class="text-sm bg-gray-100 inline-block px-3 py-1 rounded-full mb-2">
-            {{ $orang->tim }}
-          </p>
-          <h3 class="text-xl font-semibold">{{ $orang->nama }}</h3>
-          <p class="text-gray-600 text-sm mt-2">{{ $orang->deskripsi }}</p>
-        </div>
-
+      <div class="bg-blue-50 p-5 flex justify-center">
+        <img src="{{ asset($orang->foto) }}" class="w-40 h-40 object-cover rounded-lg">
       </div>
+
+      <div class="p-5">
+        <p class="text-sm bg-gray-100 inline-block px-3 py-1 rounded-full mb-2">
+          {{ $orang->tim }}
+        </p>
+        <h3 class="text-xl font-semibold">{{ $orang->nama }}</h3>
+        <p class="text-gray-600 text-sm mt-2">{{ $orang->deskripsi }}</p>
+      </div>
+
+    </div>
     @endforeach
 
   </div>

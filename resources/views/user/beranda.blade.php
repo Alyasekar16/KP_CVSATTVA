@@ -155,6 +155,17 @@
         </p>
       </div>
     </div>
+
+    <div class="text-center mt-12">
+      <a href="{{ url('/ulasan') }}"
+        class="inline-flex items-center px-6 py-3 rounded-full text-white bg-[#6B4423] hover:bg-[#8C5B3A] transition duration-300 shadow-lg font-semibold">
+        Lihat Semua Ulasan 
+        <svg class="ml-2 -mr-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+        </svg>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -185,7 +196,5 @@
   </div>
 </section>
 
-
-  
 
 @endsection

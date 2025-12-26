@@ -8,8 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class penghargaan extends Model
 {
     protected $table = 'penghargaan';
+    protected $primaryKey = 'id';
 
     protected $fillable = [
-        'nama', 'tahun', 'deskripsi', 'foto'
+        'nama',
+        'tahun',
+        'deskripsi',
+        'foto'
     ];
 }

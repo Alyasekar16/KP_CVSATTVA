@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Proyek extends Model
+class proyek extends Model
 {
     protected $table = 'proyek';
     protected $primaryKey = 'proyek_id';
-    
+
     protected $fillable = [
         'namaproyek',
         'kategoriproyek',
@@ -22,4 +22,9 @@ class Proyek extends Model
         'deskripsi',
         'gambarproyek',
     ];
+
+    public function komen()
+    {
+        return $this->hasMany(komen::class, 'proyek_id', 'proyek_id');
+    }
 }

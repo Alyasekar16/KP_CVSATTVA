@@ -10,20 +10,27 @@
     </a>
 </div>
 
-<form action="{{ route('proyek.store') }}" method="POST" enctype="multipart/form-data"
-      class="bg-white p-6 rounded shadow-md space-y-4">
+
+<form action="{{ route('proyek.store') }}"
+    method="POST"
+    enctype="multipart/form-data"
+    class="bg-white p-6 rounded shadow-md space-y-4">
     @csrf
 
     {{-- Nama Proyek --}}
     <div>
         <label class="block font-medium mb-1">Nama Proyek</label>
-        <input type="text" name="namaproyek" class="w-full border rounded px-3 py-2" required>
+        <input type="text"
+            name="namaproyek"
+            value="{{ old('namaproyek') }}"
+            class="w-full border rounded px-3 py-2" required>
     </div>
 
     {{-- KATEGORI PROYEK --}}
     <div>
         <label class="block font-medium mb-1">Kategori Proyek</label>
-        <select name="kategoriproyek" class="w-full border rounded px-3 py-2" required>
+        <select name="kategoriproyek"
+            class="w-full border rounded px-3 py-2" required>
             <option value="">-- Pilih Kategori --</option>
             <option value="Kontruksi">Kontruksi</option>
             <option value="Desain Arsitektur">Desain Arsitektur</option>
@@ -33,7 +40,8 @@
     {{-- JENIS PROYEK --}}
     <div>
         <label class="block font-medium mb-1">Jenis Proyek</label>
-        <select name="jenisproyek" class="w-full border rounded px-3 py-2" required>
+        <select name="jenisproyek"
+            class="w-full border rounded px-3 py-2" required>
             <option value="">-- Pilih Jenis --</option>
             <option value="Rumah">Rumah</option>
             <option value="Kantor">Kantor</option>
@@ -47,24 +55,36 @@
     {{-- Lokasi --}}
     <div>
         <label class="block font-medium mb-1">Lokasi</label>
-        <input type="text" name="lokasi" class="w-full border rounded px-3 py-2" required>
+        <input type="text"
+            name="lokasi"
+            value="{{ old('lokasi') }}"
+            class="w-full border rounded px-3 py-2" required>
     </div>
 
     {{-- Klien --}}
     <div>
         <label class="block font-medium mb-1">Klien</label>
-        <input type="text" name="klien" class="w-full border rounded px-3 py-2" required>
+        <input type="text"
+            name="klien"
+            value="{{ old('klien') }}"
+            class="w-full border rounded px-3 py-2" required>
     </div>
 
     {{-- Tanggal --}}
     <div class="grid grid-cols-2 gap-4">
         <div>
             <label class="block font-medium mb-1">Tanggal Mulai</label>
-            <input type="date" name="tanggalmulai" class="w-full border rounded px-3 py-2" required>
+            <input type="date"
+                name="tanggalmulai"
+                value="{{ old('tanggalmulai') }}"
+                class="w-full border rounded px-3 py-2" required>
         </div>
         <div>
             <label class="block font-medium mb-1">Tanggal Selesai</label>
-            <input type="date" name="tanggalselesai" class="w-full border rounded px-3 py-2" required>
+            <input type="date"
+                name="tanggalselesai"
+                value="{{ old('tanggalselesai') }}"
+                class="w-full border rounded px-3 py-2" required>
         </div>
     </div>
 
@@ -81,13 +101,18 @@
     {{-- Deskripsi --}}
     <div>
         <label class="block font-medium mb-1">Deskripsi</label>
-        <textarea name="deskripsi" rows="3" class="w-full border rounded px-3 py-2"></textarea>
+        <textarea name="deskripsi"
+            rows="3"
+            value="{{ old('deskripsi') }}"
+            class="w-full border rounded px-3 py-2"></textarea>
     </div>
 
     {{-- Gambar --}}
     <div>
         <label class="block font-medium mb-1">Gambar Proyek</label>
-        <input type="file" name="gambarproyek" class="w-full border rounded px-3 py-2">
+        <input type="file"
+            name="gambarproyek"
+            class="w-full border rounded px-3 py-2">
     </div>
 
 

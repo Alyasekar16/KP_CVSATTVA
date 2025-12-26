@@ -18,15 +18,15 @@ class BerandaController extends Controller
 
     public function kontak()
     {
-        $data = [
-            'name' => 'John Doe',
-            'email' => 'john@example.com'
-        ];
-        return view('kontak', $data);
+        return view('user.kontak');
     }
 
     public function proyek()
     {
         return view('user.proyek');
+    }
+    public function ulasan()
+    {
+        return view('user.ulasan');
     }
 }

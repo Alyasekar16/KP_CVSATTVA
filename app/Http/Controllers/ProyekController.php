@@ -2,98 +2,40 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Proyek;
+use App\Models\proyek;
+use App\Models\komen;
 use Illuminate\Http\Request;
 
 class ProyekController extends Controller
 {
-    public function index()
-    {
-        $proyek = Proyek::all();
-        return view('admin.proyek.index', compact('proyek'));
-    }
-
-    public function create()
-    {
-        return view('admin.proyek.create');
-    }
-
-    public function store(Request $request)
-{
-    $data = $request->only([
-        'namaproyek',
-        'kategoriproyek',
-        'jenisproyek',
-        'lokasi',
-        'klien',
-        'tanggalmulai',
-        'tanggalselesai',
-        'status',
-        'deskripsi',
-    ]);
-
-    if ($request->hasFile('gambarproyek')) {
-        $file = $request->file('gambarproyek');
-        $nama = time().'.'.$file->getClientOriginalExtension();
-        $file->move(public_path('gambarproyek'), $nama);
-        $data['gambarproyek'] = $nama;
-    }
-
-    Proyek::create($data);
-
-    return redirect()->route('proyek.index')
-        ->with('success', 'Proyek berhasil ditambahkan!');
-}
-
-
     public function userIndex()
     {
-        $proyek = Proyek::all()->groupBy('kategoriproyek');
+        $proyek = proyek::select(
+            'proyek_id',
+            'namaproyek',
+            'kategoriproyek',
+            'lokasi',
+            'status',
+            'gambarproyek'
+        )
+
+            ->orderBy('created_at', 'desc')
+            ->get()
+            ->groupBy('kategoriproyek');
+
         return view('user.proyek', compact('proyek'));
     }
 
-    public function edit($id)
+    public function show($id)
     {
-        $proyek = Proyek::find($id);
-        return view('admin.proyek.edit', compact('proyek'));
+        $proyek = proyek::with(['komen.balasan'])
+            ->findOrFail($id);
+
+        return view('user.proyek_detail', compact('proyek'));
     }
 
-    public function update(Request $request, $id)
-{
-    $proyek = Proyek::findOrFail($id);
-
-    $data = $request->only([
-        'namaproyek',
-        'kategoriproyek',
-        'jenisproyek',
-        'lokasi',
-        'klien',
-        'tanggalmulai',
-        'tanggalselesai',
-        'status',
-        'deskripsi',
-    ]);
-
-    if ($request->hasFile('gambarproyek')) {
-        $file = $request->file('gambarproyek');
-        $nama = time().'.'.$file->getClientOriginalExtension();
-        $file->move(public_path('gambarproyek'), $nama);
-        $data['gambarproyek'] = $nama;
-    }
-
-    $proyek->update($data);
-
-    return redirect()->route('proyek.index')
-        ->with('success', 'Proyek berhasil diperbarui!');
-}
-
-
-    public function destroy($id)
+    public function komentar()
     {
-        $proyek = Proyek::find($id);
-        $proyek->delete();
-
-        return redirect()->route('proyek.index')
-            ->with('success', 'Proyek berhasil dihapus!');
+        return $this->hasMany(komen::class, 'proyek_id');
     }
 }

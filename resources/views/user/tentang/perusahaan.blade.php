@@ -18,7 +18,7 @@
 {{-- Section Sejarah --}}
 <section class="py-20">
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        
+
         <div>
             <h2 class="text-3xl font-bold text-gray-800 mb-4">Sejarah Perusahaan</h2>
             <p class="text-gray-600 leading-relaxed"> {{ $data ->sejarah }}</p>
@@ -26,7 +26,7 @@
         </div>
 
         <div class="flex justify-center">
-            <img src=" /company.jpg" class="rounded-2xl shadow-xl w-11/12">
+            <img src="{{ asset($data->foto) }}" class="rounded-2xl shadow-xl w-11/12">
         </div>
 
     </div>
@@ -37,7 +37,7 @@
 <section class="py-20 bg-gray-50">
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <div>
-            <img src=<img src="{{ asset($data->foto) }}" style="width:100px"> 
+            <img src=<img src="{{ asset($data->foto) }}" style="width:100px">
         </div>
 
         <div>
